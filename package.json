@@ -16,8 +16,10 @@
     "url": "git+https://github.com/vincecao/animated-in-view.git"
   },
   "keywords": [
-    "S3",
-    "Database"
+    "Animation",
+    "React",
+    "react-spring",
+    "framer-motion"
   ],
   "author": "Lineng Cao",
   "license": "ISC",
