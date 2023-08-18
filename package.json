@@ -1,0 +1,42 @@
+{
+  "name": "@vincecao/animated-in-view",
+  "version": "0.0.1",
+  "description": "Animate element when they are showing on view",
+  "source": "src/index.tsx",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincecao/animated-in-view.git"
+  },
+  "keywords": [
+    "S3",
+    "Database"
+  ],
+  "author": "Lineng Cao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincecao/animated-in-view/issues"
+  },
+  "homepage": "https://github.com/vincecao/animated-in-view#readme",
+  "dependencies": {
+    "@react-spring/web": "^9.7.3",
+    "framer-motion": "^10.16.0"
+  },
+  "devDependencies": {
+    "@parcel/packager-ts": "2.9.3",
+    "@parcel/transformer-typescript-types": "2.9.3",
+    "@types/react": "^18.2.20",
+    "parcel": "^2.9.3",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}
