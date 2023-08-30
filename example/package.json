@@ -4,6 +4,8 @@
   "source": "./index.html",
   "dependencies": {
     "leva": "^0.9.35",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "zod": "^3.22.2"
   },
@@ -24,7 +26,7 @@
     "start": "parcel",
     "build": "parcel build",
     "clean": "rm -rf dist .parcel-cache",
-    "prebuild": "npm run clean",
-    "prestart": "npm run clean && export NODE_ENV=development"
+    "prebuild": "yarn clean",
+    "prestart": "yarn clean && export NODE_ENV=development"
   }
 }

@@ -7,8 +7,9 @@
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
   "scripts": {
-    "start:example": "npm run clean && npm run build && cd example && npm run start",
-    "prepublishOnly": "npm run build",
+    "start:example": "yarn clean && yarn build && cd example && yarn start",
+    "build:example": "yarn clean && yarn add react react-dom --frozen-lockfile && yarn build && cd example && yarn && yarn build",
+    "prepublishOnly": "yarn build",
     "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf dist .parcel-cache"
@@ -31,7 +32,9 @@
   "homepage": "https://github.com/vincecao/animated-in-view#readme",
   "dependencies": {
     "@react-spring/web": "^9.7.3",
-    "framer-motion": "^10.16.0"
+    "framer-motion": "^10.16.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.9.3",
