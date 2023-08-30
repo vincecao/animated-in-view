@@ -37,8 +37,8 @@ pnpm i @vincecao/animated-in-view
 <AnimatedMotionDiv>...</AnimatedMotionDiv>
 
 // animate image element using React Transition Group
-<AnimatedMotionImage src="..." />
+<AnimatedTransitionImage src="..." />
 
 // animate div element using React Transition Group
-<AnimatedMotionDiv>...</AnimatedMotionDiv>
+<AnimatedTransitionDiv>...</AnimatedTransitionDiv>
 ```
