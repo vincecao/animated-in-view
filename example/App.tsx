@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useMemo } from "react";
 import { useControls } from "leva";
 import { z } from "zod";
-import { AnimatedSpringImage, AnimatedMotionImage, AnimatedSpringDiv, AnimatedMotionDiv } from "@vinceocao/animated-in-view";
+import { AnimatedSpringImage, AnimatedMotionImage, AnimatedSpringDiv, AnimatedMotionDiv, AnimatedTransitionImage, AnimatedTransitionDiv } from "@vinceocao/animated-in-view";
 import websiteLogo from "url:./assets/personal-website-logo.png?as=webp&width=20";
 
 const controlSchema = z.object({
@@ -54,9 +54,9 @@ export default function App() {
       <Section>
         <AnimatedSpringDiv type="slide-bottom-to-top" className="flex flex-col gap-3">
           <h1 className="text-2xl">
-            <code className="font-mono border rounded-lg p-1 bg-black text-white">animated-in-view</code> Examples
+            <code className="font-mono border dark:border-gray-600 rounded-lg px-2 py-1 bg-black text-white mr-1">animated-in-view</code> Examples
           </h1>
-          <div className="italic text-gray-600">Please update controller and then refresh the browser window to see the animation changes</div>
+          <Caption>Please update controller and then refresh the browser window to see the animation changes</Caption>
           <span className="flex space-x-2">
             <a href="http://vince-amazing.com">
               <img src={websiteLogo} alt="Personal website" height="20" />
@@ -70,6 +70,7 @@ export default function App() {
           </span>
         </AnimatedSpringDiv>
       </Section>
+
       <Section>
         <AnimatedSpringDiv type="slide-bottom-to-top">
           <div>
@@ -78,7 +79,7 @@ export default function App() {
               React Spring
             </a>
           </div>
-          <span className="italic text-gray-600">Keep scrolling...</span>
+          <Caption>Keep scrolling...</Caption>
         </AnimatedSpringDiv>
       </Section>
       <Section>
@@ -88,16 +89,17 @@ export default function App() {
           tincidunt quam augue, eget porta massa facilisis consequat. Phasellus eget mollis ante. Curabitur vulputate euismod leo, nec blandit nibh mattis sed. Quisque blandit mauris nibh.
         </AnimatedSpringDiv>
       </Section>
+
       <Section>
-        <AnimatedSpringDiv type="slide-bottom-to-top">
+        <AnimatedMotionDiv type="slide-bottom-to-top">
           <div>
             Animated with
             <a className="ml-1 text-blue-500" href="https://www.framer.com/motion/" target="__blank">
               Framer Motion
             </a>
           </div>
-          <span className="italic text-gray-600">Keep scrolling...</span>
-        </AnimatedSpringDiv>
+          <Caption>Keep scrolling...</Caption>
+        </AnimatedMotionDiv>
       </Section>
       <Section>
         <AnimatedMotionImage {...validProps} src="https://fakeimg.pl/300x300/?retina=1&text=Hello&font=noto" className="w-[300px] h-[300px]" />
@@ -106,10 +108,33 @@ export default function App() {
           tincidunt quam augue, eget porta massa facilisis consequat. Phasellus eget mollis ante. Curabitur vulputate euismod leo, nec blandit nibh mattis sed. Quisque blandit mauris nibh.
         </AnimatedMotionDiv>
       </Section>
+
+      <Section>
+        <AnimatedTransitionDiv type="slide-bottom-to-top">
+          <div>
+            Animated with
+            <a className="ml-1 text-blue-500" href="https://reactcommunity.org/react-transition-group/transition" target="__blank">
+              React Transition Group
+            </a>
+          </div>
+          <Caption>Keep scrolling...</Caption>
+        </AnimatedTransitionDiv>
+      </Section>
+      <Section>
+        <AnimatedTransitionImage {...validProps} src="https://fakeimg.pl/300x300/?retina=1&text=Hello&font=noto" className="w-[300px] h-[300px]" />
+        <AnimatedTransitionDiv {...validProps} className="p-5">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quam tortor, interdum vel velit id, aliquam pharetra nibh. Donec fermentum nunc in rutrum vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla tempor nibh nisl, a sodales elit dignissim ut. Suspendisse potenti. Nulla ut pharetra nulla, vitae feugiat ligula. Aliquam
+          tincidunt quam augue, eget porta massa facilisis consequat. Phasellus eget mollis ante. Curabitur vulputate euismod leo, nec blandit nibh mattis sed. Quisque blandit mauris nibh.
+        </AnimatedTransitionDiv>
+      </Section>
     </>
   );
 }
 
 const Section = memo((props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>) => {
-  return <section {...props} className="h-screen w-full flex justify-center items-center space-x-5" />;
+  return <section {...props} className="h-screen w-full flex flex-col md:flex-row justify-center items-center space-5" />;
+});
+
+const Caption = memo((props: React.DetailedHTMLProps<React.HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>) => {
+  return <span {...props} className="italic text-gray-600 dark:text-gray-300" />;
 });

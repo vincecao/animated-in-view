@@ -24,15 +24,21 @@ pnpm i @vincecao/animated-in-view
 
 # usage
 ```tsx
-// animate image element using react spring
+// animate image element using React Spring
 <AnimatedSpringImage src="..." />
 
-// animate div element using react spring
+// animate div element using React spring
 <AnimatedSpringDiv>...</AnimatedSpringDiv>
 
-// animate image element using framer-motion
+// animate image element using Framer Motion
 <AnimatedMotionImage src="..." />
 
-// animate div element using framer-motion
+// animate div element using Framer Motion
+<AnimatedMotionDiv>...</AnimatedMotionDiv>
+
+// animate image element using React Transition Group
+<AnimatedMotionImage src="..." />
+
+// animate div element using React Transition Group
 <AnimatedMotionDiv>...</AnimatedMotionDiv>
 ```

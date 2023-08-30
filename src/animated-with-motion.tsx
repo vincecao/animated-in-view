@@ -3,10 +3,7 @@ import { Variants, motion, useAnimation } from "framer-motion";
 import { useInView } from "@react-spring/web";
 import type { AnimatedImageProps, AnimatedDivProps } from "./type";
 
-const getMotionTransition = (
-  type: NonNullable<AnimatedImageProps["type"]>,
-  options: { distance: number; delay: number, duration: number }
-): Variants => {
+const getMotionTransition = (type: NonNullable<AnimatedImageProps["type"]>, options: { distance: number; delay: number; duration: number }): Variants => {
   const { distance, delay, duration } = options;
   const transition = {
     delay: delay / 1000,
@@ -87,16 +84,8 @@ export const AnimatedMotionImage = memo((props: AnimatedImageProps) => {
     controls,
     variants,
   } = useAnimatedMotionInView(props);
-  if (animateDisabled) return <img {...(leftProps as any)} />;
-  return (
-    <motion.img
-      {...(leftProps as any)}
-      animate={controls}
-      initial="hidden"
-      ref={ref}
-      variants={variants}
-    />
-  );
+  if (animateDisabled) return <img {...leftProps} ref={ref} />;
+  return <motion.img {...(leftProps as any)} ref={ref} animate={controls} initial="hidden" variants={variants} />;
 });
 
 export const AnimatedMotionDiv = memo((props: AnimatedDivProps) => {
@@ -106,32 +95,15 @@ export const AnimatedMotionDiv = memo((props: AnimatedDivProps) => {
     controls,
     variants,
   } = useAnimatedMotionInView(props);
-  if (animateDisabled) return <div {...leftProps} />;
-  return (
-    <motion.div
-      {...(leftProps as any)}
-      animate={controls}
-      initial="hidden"
-      ref={ref}
-      variants={variants}
-    />
-  );
+  if (animateDisabled) return <div {...leftProps} ref={ref} />;
+  return <motion.div {...(leftProps as any)} ref={ref} animate={controls} initial="hidden" variants={variants} />;
 });
 
 function useAnimatedMotionInView(props: AnimatedImageProps | AnimatedDivProps) {
-  const {
-    distance = 100,
-    delay = 200,
-    type = "fade",
-    duration = 600,
-    ...leftProps
-  } = props;
+  const { distance = 100, delay = 200, type = "fade", duration = 600, ...leftProps } = props;
   const [ref, inView] = useInView({ once: true });
   const controls = useAnimation();
-  const variants = useMemo(
-    () => getMotionTransition(type, { distance, delay, duration }),
-    [type, distance, inView, delay]
-  );
+  const variants = useMemo(() => getMotionTransition(type, { distance, delay, duration }), [type, distance, inView, delay]);
   useEffect(() => {
     if (inView) controls.start("visible");
   }, [controls, inView]);

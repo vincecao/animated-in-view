@@ -2,10 +2,7 @@ import React, { memo, useMemo } from "react";
 import { useInView, useSpring, animated } from "@react-spring/web";
 import type { AnimatedImageProps, AnimatedDivProps } from "./type";
 
-const getSpringTransition = (
-  type: NonNullable<AnimatedImageProps["type"]>,
-  options: { distance: number }
-) => {
+const getSpringTransition = (type: NonNullable<AnimatedImageProps["type"]>, options: { distance: number }) => {
   const { distance } = options;
   switch (type) {
     case "slide-bottom-to-top":
@@ -70,7 +67,7 @@ export const AnimatedSpringImage = memo((props: AnimatedImageProps) => {
     ref,
     animation,
   } = useAnimatedSpringInView(props);
-  if (animateDisabled) return <img {...(leftProps as any)} />;
+  if (animateDisabled) return <img {...leftProps} ref={ref} />;
   return <animated.img {...leftProps} ref={ref} style={animation} />;
 });
 
@@ -80,23 +77,14 @@ export const AnimatedSpringDiv = memo((props: AnimatedDivProps) => {
     ref,
     animation,
   } = useAnimatedSpringInView(props);
-  if (animateDisabled) return <div {...leftProps} />;
+  if (animateDisabled) return <div {...leftProps} ref={ref} />;
   return <animated.div {...leftProps} ref={ref} style={animation} />;
 });
 
 function useAnimatedSpringInView(props: AnimatedImageProps | AnimatedDivProps) {
-  const {
-    distance = 100,
-    delay = 200,
-    type = "fade",
-    duration = 600,
-    ...leftProps
-  } = props;
+  const { distance = 100, delay = 200, type = "fade", duration = 600, ...leftProps } = props;
   const [ref, inView] = useInView({ once: true });
-  const config = useMemo(
-    () => getSpringTransition(type, { distance })[String(inView)],
-    [type, distance, inView]
-  );
+  const config = useMemo(() => getSpringTransition(type, { distance })[String(inView)], [type, distance, inView]);
   const animation = useSpring({
     ...config,
     delay,
