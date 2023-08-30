@@ -1,15 +1,16 @@
 import React, { memo, useEffect, useMemo } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { Variants, motion, useAnimation } from "framer-motion";
 import { useInView } from "@react-spring/web";
 import type { AnimatedImageProps, AnimatedDivProps } from "./type";
 
 const getMotionTransition = (
   type: NonNullable<AnimatedImageProps["type"]>,
-  options: { distance: number; delay: number }
-) => {
-  const { distance, delay } = options;
+  options: { distance: number; delay: number, duration: number }
+): Variants => {
+  const { distance, delay, duration } = options;
   const transition = {
     delay: delay / 1000,
+    duration: duration / 1000,
     type: "tween",
   };
   switch (type) {
@@ -128,7 +129,7 @@ function useAnimatedMotionInView(props: AnimatedImageProps | AnimatedDivProps) {
   const [ref, inView] = useInView({ once: true });
   const controls = useAnimation();
   const variants = useMemo(
-    () => getMotionTransition(type, { distance, delay }),
+    () => getMotionTransition(type, { distance, delay, duration }),
     [type, distance, inView, delay]
   );
   useEffect(() => {

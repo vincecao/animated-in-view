@@ -1,15 +1,17 @@
 {
   "name": "@vincecao/animated-in-view",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Animate element when they are showing on view",
   "source": "src/index.tsx",
   "main": "dist/main.js",
   "module": "dist/module.js",
   "types": "dist/types.d.ts",
   "scripts": {
+    "start:example": "npm run clean && npm run build && cd example && npm run start",
     "prepublishOnly": "npm run build",
     "build": "parcel build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist .parcel-cache"
   },
   "repository": {
     "type": "git",
@@ -34,11 +36,13 @@
   "devDependencies": {
     "@parcel/packager-ts": "2.9.3",
     "@parcel/transformer-typescript-types": "2.9.3",
-    "@types/react": "^18.2.20",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "parcel": "^2.9.3",
-    "typescript": "^5.1.6"
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
