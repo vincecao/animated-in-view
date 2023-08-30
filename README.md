@@ -1,6 +1,12 @@
 # Animated in view
-- [demo](animated-in-view.vercel.app)
-- [npm.io](https://www.npmjs.com/package/@vincecao/animated-in-view)
+<a href="https://badge.fury.io/js/@vincecao%2Fanimated-in-view">
+  <img src="https://badge.fury.io/js/@vincecao%2Fanimated-in-view.svg" alt="npm version" height="18" />
+</a>
+<a href="https://badge.fury.io/gh/vincecao%2Fanimated-in-view">
+  <img src="https://badge.fury.io/gh/vincecao%2Fanimated-in-view.svg" alt="GitHub version" height="18" />
+</a>
+
+[Check live demo here](https://animated-in-view.vercel.app)
 
 ## Install
 ```bash
