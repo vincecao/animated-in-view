@@ -1,4 +1,6 @@
 # Animated in view
+- [demo](animated-in-view.vercel.app)
+- [npm.io](https://www.npmjs.com/package/@vincecao/animated-in-view)
 
 ## Install
 ```bash
