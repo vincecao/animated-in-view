@@ -63,5 +63,4 @@ jobs:
       - name: Push stable version change to HEAD:master
         uses: ad-m/github-push-action@master
         with:
-          # for re-triggering github checks on master, need to use a personal PAT token instead of GITHUB_TOKEN
-          github_token: ${{ secrets.GH_PUSH_COMMIT_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
