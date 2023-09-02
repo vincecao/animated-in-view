@@ -1,6 +1,6 @@
 {
   "name": "@vincecao/animated-in-view",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Animate element when they are showing on view",
   "source": "src/index.tsx",
   "main": "dist/main.js",
