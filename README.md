@@ -46,10 +46,10 @@ pnpm i @vincecao/animated-in-view
 <AnimatedTransitionDiv>...</AnimatedTransitionDiv>
 
 // animate image element using GSAP
-<AnimatedTransitionImage src="..." />
+<AnimatedGsapImage src="..." />
 
 // animate div element using GSAP
-<AnimatedTransitionDiv>...</AnimatedTransitionDiv>
+<AnimatedGsapDiv>...</AnimatedGsapDiv>
 ```
 
 ### Animation libraries in examples
