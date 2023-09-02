@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useMemo } from "react";
 import { useControls } from "leva";
 import { z } from "zod";
-import { AnimatedSpringImage, AnimatedMotionImage, AnimatedSpringDiv, AnimatedMotionDiv, AnimatedTransitionImage, AnimatedTransitionDiv } from "@vinceocao/animated-in-view";
+import { AnimatedSpringImage, AnimatedMotionImage, AnimatedSpringDiv, AnimatedMotionDiv, AnimatedTransitionImage, AnimatedTransitionDiv, AnimatedGsapImage, AnimatedGsapDiv } from "@vinceocao/animated-in-view";
 import websiteLogo from "url:./assets/personal-website-logo.png?as=webp&width=20";
 
 const controlSchema = z.object({
@@ -126,6 +126,25 @@ export default function App() {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quam tortor, interdum vel velit id, aliquam pharetra nibh. Donec fermentum nunc in rutrum vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla tempor nibh nisl, a sodales elit dignissim ut. Suspendisse potenti. Nulla ut pharetra nulla, vitae feugiat ligula. Aliquam
           tincidunt quam augue, eget porta massa facilisis consequat. Phasellus eget mollis ante. Curabitur vulputate euismod leo, nec blandit nibh mattis sed. Quisque blandit mauris nibh.
         </AnimatedTransitionDiv>
+      </Section>
+
+      <Section>
+        <AnimatedGsapDiv type="slide-bottom-to-top">
+          <div>
+            Animated with
+            <a className="ml-1 text-blue-500" href="https://greensock.com/" target="__blank">
+              gsap
+            </a>
+          </div>
+          <Caption>Keep scrolling...</Caption>
+        </AnimatedGsapDiv>
+      </Section>
+      <Section>
+        <AnimatedGsapImage {...validProps} src="https://fakeimg.pl/300x300/?retina=1&text=Hello&font=noto" className="w-[300px] h-[300px]" />
+        <AnimatedGsapDiv {...validProps} className="p-5">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent quam tortor, interdum vel velit id, aliquam pharetra nibh. Donec fermentum nunc in rutrum vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla tempor nibh nisl, a sodales elit dignissim ut. Suspendisse potenti. Nulla ut pharetra nulla, vitae feugiat ligula. Aliquam
+          tincidunt quam augue, eget porta massa facilisis consequat. Phasellus eget mollis ante. Curabitur vulputate euismod leo, nec blandit nibh mattis sed. Quisque blandit mauris nibh.
+        </AnimatedGsapDiv>
       </Section>
     </>
   );

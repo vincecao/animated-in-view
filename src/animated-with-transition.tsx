@@ -10,58 +10,47 @@ const getReactTransition = (type: NonNullable<AnimatedImageProps["type"]>, optio
   const initialStyles = {
     transition: `all ${duration}ms ease-in-out`,
     opacity: 0,
+    transform: "translate(0)"
   };
   switch (type) {
     case "slide-bottom-to-top":
       return [
+        initialStyles,
         {
-          ...initialStyles,
-          transform: "translateY(0)",
-        },
-        {
-          entering: { opacity: 1, transform: `translateY(${distance}px)` },
-          entered: { opacity: 1, transform: `translateY(${distance}px)` },
-          exiting: { opacity: 0, transform: "translateY(0)" },
-          exited: { opacity: 0, transform: "translateY(0)" },
+          entering: { transform: `translateY(${distance}px)` },
+          entered: { opacity: 1 },
+          exiting: {},
+          exited: {},
         },
       ];
     case "slide-top-to-bottom":
       return [
+        initialStyles,
         {
-          ...initialStyles,
-          transform: "translateY(0)",
-        },
-        {
-          entering: { opacity: 1, transform: `translateY(-${distance}px)` },
-          entered: { opacity: 1, transform: `translateY(-${distance}px)` },
-          exiting: { opacity: 0, transform: "translateY(0)" },
-          exited: { opacity: 0, transform: "translateY(0)" },
+          entering: { transform: `translateY(-${distance}px)` },
+          entered: { opacity: 1 },
+          exiting: {},
+          exited: {},
         },
       ];
     case "slide-left-to-right":
       return [
+        initialStyles,
         {
-          ...initialStyles,
-          transform: "translateX(0)",
-        },
-        {
-          entering: { opacity: 1, transform: `translateX(-${distance}px)` },
-          entered: { opacity: 1, transform: `translateX(-${distance}px)` },
-          exiting: { opacity: 0, transform: "translateX(0)" },
-          exited: { opacity: 0, transform: "translateX(0)" },
+          entering: { transform: `translateX(-${distance}px)` },
+          entered: { opacity: 1 },
+          exiting: {},
+          exited: {},
         },
       ];
     case "slide-right-to-left":
       return [
+        initialStyles,
         {
-          ...initialStyles,
-          transform: "translateX(0)",
-        },
-        {
-          entering: { opacity: 1, transform: `translateX(${distance}px)` },
-          entered: { opacity: 1, transform: `translateX(${distance}px)` },
-          exiting: { opacity: 0, transform: "translateX(0)" },
-          exited: { opacity: 0, transform: "translateX(0)" },
+          entering: { transform: `translateX(${distance}px)` },
+          entered: { opacity: 1 },
+          exiting: {},
+          exited: {},
         },
       ];
     case "fade":
