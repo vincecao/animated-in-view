@@ -37,20 +37,25 @@ function useAnimatedGsapInView(props: AnimatedImageProps | AnimatedDivProps) {
   const options = getGsapFromOptions(type, { duration, distance, delay });
 
   useLayoutEffect(() => {
-    if (!animateDisabled) {
+    if (animateDisabled) return () => {};
+    const ctx = gsap.context(() => {
       gsap.fromTo(
         ref.current,
         options,
         {
-          scrollTrigger: ref.current,
+          scrollTrigger: {
+            trigger: ref.current,
+          },
           autoAlpha: 1,
           x: 0,
           y: 0,
           duration: duration / 1000,
           delay: delay / 1000,
+          ease: "power2",
         }
-      );
-    }
+      )
+    });
+    return () => ctx.revert();
   }, []);
 
   return { leftProps, ref };
